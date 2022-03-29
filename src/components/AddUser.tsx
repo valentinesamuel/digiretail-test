@@ -24,10 +24,10 @@ const AddUser = () => {
   return (
     <div onSubmit={onSubmit}>
       <label htmlFor='name'>Name</label>
-      <input type="text"  id='name' onChange={(e) => setUser((prevUser) => ({ ...prevUser, name: e.target.value }))} />
+      <input type="text" id='name' onChange={(e) => setUser((prevUser) => ({ ...prevUser, name: e.target.value }))} />
       <br />
       <label htmlFor='username'>username</label>
-      <input type="text" id='username'  onChange={(e) => setUser((prevUsername) => ({ ...prevUsername, username: e.target.value }))} />
+      <input type="text" id='username' onChange={(e) => setUser((prevUsername) => ({ ...prevUsername, username: e.target.value }))} />
       <br />
       <label htmlFor='email'>email</label>
       <input type="text" id='email' onChange={(e) => setUser((prevEmail) => ({ ...prevEmail, email: e.target.value }))} />

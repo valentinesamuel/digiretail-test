@@ -9,17 +9,23 @@ type Props = {
 
 const User: React.FC<Props> = ({ userDetail }) => {
   const dispatch = useDispatch();
-  console.log(userDetail);
 
   const handleDeleteUser = () => {
-    dispatch(deleteUser({ id: userDetail.id }))
+    dispatch(deleteUser({ id: userDetail }))
+    console.log(userDetail.id);
+
   }
 
   return (
-    <span>
-      <h1>{userDetail.name}</h1>
-      <button onClick={handleDeleteUser}>delete</button>
-    </span>
+    <div className='card'>
+      <h1 className='name'>{userDetail.name}</h1>
+      <p className='email'>{userDetail.email}</p>
+      <p className='website'>{userDetail.website}</p>
+
+      <p className='phone'>{userDetail.phone}</p>
+      <p className='username'>{userDetail.username}</p>
+      {/* <button onClick={handleDeleteUser}>delete</button> */}
+    </div>
   )
 }
 

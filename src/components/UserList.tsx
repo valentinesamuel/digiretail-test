@@ -3,23 +3,22 @@ import { useEffect } from "react"
 import { getUsersAsync, IUser } from "../redux/userSlice"
 import User from "./User"
 
+type Props = {
+      listOfUser: IUser[]
+}
 
-const UserList = () => {
+
+const UserList: React.FC<Props> = ({ listOfUser }) => {
       const dispatch = useDispatch();
-      const users = useSelector((state: any) => state.users)
       
-      useEffect(() => {
-        dispatch(getUsersAsync())
-      
-      }, [])
-      
-  return (
-        <ul>
-              {users.map((user:any) => (
-                    <User userDetail={user}/>
-              ))}
-    </ul>
-  )
+
+      return (
+            <div className="user-list">
+                  {listOfUser.map((user: any) => (
+                        <User key={user.id} userDetail={user} />
+                  ))}
+            </div>
+      )
 }
 
 export default UserList
