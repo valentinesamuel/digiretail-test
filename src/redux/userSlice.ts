@@ -8,8 +8,7 @@ export interface IUser {
       email?: string
       phone?: string
       website?: string
-      company?: object
-      address?: object
+   
 }
 
 export type UserState = {
@@ -22,24 +21,10 @@ const initialState: UserState = {
                   id: " 1",
                   name: "Valentine",
                   username: "@Valrenic2",
-                  email: "valentinesamuel080@gmail.com",
-                  address: {
-                        "street": "Kulas Light",
-                        "suite": "Apt. 556",
-                        "city": "Gwenborough",
-                        "zipcode": "92998-3874",
-                        geo: {
-                              "lat": "-37.3159",
-                              "lng": "81.1496"
-                        }
-                  },
+                  email: "valentinesamuel080@gmail.com", 
                   phone: "2536326234",
                   website: "valentinesamuel.vercel.app",
-                  company: {
-                        name: "freelance",
-                        catchPhrase: "Muf",
-                        bs: "sdhgsrofm"
-                  }
+
             },
       ]
 }
@@ -59,29 +44,13 @@ const userSlice = createSlice({
       reducers: {
             addUser: (state, action) => {
                   const newUser: IUser = {
-                        email: action.payload.email,
                         id: nanoid(),
+                        email: action.payload.email,
                         name: action.payload.name,
                         phone: action.payload.phone,
                         username: action.payload.username,
                         website: action.payload.username,
-                        address: {
-                              street: action.payload.address.street,
-                              suite: action.payload.address.suite,
-                              city: action.payload.address.city,
-                              zipcode: action.payload.address.zipcode,
-                              geo: {
-                                    lat: action.payload.address.geo.lat,
-                                    lng: action.payload.address.geo.lng
-                              }
-                        },
-                        company: {
-                              name: action.payload.company.name,
-                              catchPhrase: action.payload.company.catchPhrase,
-                              bs: action.payload.company.bs,
-                        }
-
-                  }
+                    }
                   state.user.push(newUser)
             },
             deleteUser: (state, action) => {
@@ -90,7 +59,8 @@ const userSlice = createSlice({
       },
       extraReducers:(builder)=>{
             builder.addCase(getUsersAsync.fulfilled, (state, action) => {
-                 return action.payload?.users
+                  state.user.push(...state.user, ...action.payload?.users)
+            //      return action.payload?.users
            })
             builder.addCase(getUsersAsync.pending, (state, action) => {
                  console.log("Fetaching data");

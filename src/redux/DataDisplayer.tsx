@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import AddUser from "../components/AddUser"
 import { useAppDispatch, useAppSelector } from "./app/hooks"
 import { getUsersAsync, IUser } from "./userSlice"
 
@@ -33,6 +34,7 @@ const DataDisplayer = () => {
                         console.log(user);
 
                   })} */}
+                  <AddUser />
                   <button onClick={fetchData}>Fetach DF</button>
             </>
       )
