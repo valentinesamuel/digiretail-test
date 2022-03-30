@@ -1,20 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { IUser } from '../redux/userSlice'
-import { deleteUser } from '../redux/userSlice'
 
 type Props = {
   userDetail: IUser
 }
 
 const User: React.FC<Props> = ({ userDetail }) => {
-  const dispatch = useDispatch();
 
-  const handleDeleteUser = () => {
-    dispatch(deleteUser({ id: userDetail }))
-    console.log(userDetail.id);
+  // const handleDeleteUser = () => {
+  //   dispatch(deleteUser({ id: userDetail }))
+  //   console.log(userDetail.id);
 
-  }
+  // }
 
   return (
     <div className='card'>

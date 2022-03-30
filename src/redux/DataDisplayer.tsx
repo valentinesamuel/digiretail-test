@@ -13,10 +13,10 @@ const DataDisplayer = () => {
             if (!dataPresent) {
                   dispatch(getUsersAsync())
                   setDataPresent(true)
-                 
+
             }
 
-      }, [])
+      }, [dispatch, dataPresent])
 
       const fetchData = () => {
             dispatch(getUsersAsync())
