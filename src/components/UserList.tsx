@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { getUsersAsync, IUser } from "../redux/userSlice"
+
+import { IUser } from "../redux/userSlice"
 import User from "./User"
 
 type Props = {
@@ -9,11 +8,15 @@ type Props = {
 
 
 const UserList: React.FC<Props> = ({ listOfUser }) => {
-      const dispatch = useDispatch();
       
+
+      const newStorage:any = localStorage
+            newStorage.setItem("userList", JSON.stringify(listOfUser))
+
 
       return (
             <div className="user-list">
+
                   {listOfUser.map((user: any) => (
                         <User key={user.id} userDetail={user} />
                   ))}

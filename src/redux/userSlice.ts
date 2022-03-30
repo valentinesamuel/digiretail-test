@@ -17,15 +17,15 @@ export type UserState = {
 
 const initialState: UserState = {
       user: [
-            // {
-            //       id: " 1",
-            //       name: "Valentine",
-            //       username: "@Valrenic2",
-            //       email: "valentinesamuel080@gmail.com", 
-            //       phone: "2536326234",
-            //       website: "valentinesamuel.vercel.app",
+            {
+                  id: " 1",
+                  name: "Valentine",
+                  username: "@Valrenic2",
+                  email: "valentinesamuel080@gmail.com", 
+                  phone: "2536326234",
+                  website: "valentinesamuel.vercel.app",
 
-            // },
+            },
       ]
 }
 
@@ -51,12 +51,12 @@ const userSlice = createSlice({
                         username: action.payload.username,
                         website: action.payload.username,
                   }
-                  const storedData: any = localStorage.getItem("userList")
-                  let localStore = JSON.parse(storedData)
-                  // localStore:[].push({...newUser},storedData)
-                  // localStorage.setItem("userList", JSON.stringify(localStore))
+                
+                  
+                 
                   state.user.push(newUser)
-                  localStorage.setItem("userList", JSON.stringify({ ...state.user }))
+                
+
 
             },
             deleteUser: (state, action) => {
@@ -68,34 +68,29 @@ const userSlice = createSlice({
       },
       extraReducers: (builder) => {
             builder.addCase(getUsersAsync.fulfilled, (state, action) => {
-                  state.user.push(...action.payload?.users)
                   // check if the local storage is empty. if empty, do this
-                  if (localStorage === null) {
-                        localStorage.setItem("userList", JSON.stringify({ user: action.payload?.users }))
-                              alert("empty!")
+                  const lclsr: any = localStorage
+                  const freshData = action.payload?.users
+                  const storedData: any = localStorage.getItem("userList")
+                  let localStore = JSON.parse(storedData)
+                  if (lclsr === 0) {
+                        state.user.push(freshData)
+                       
+                        lclsr.setItem("userList", JSON.stringify(state.user))
+                        
                   } else {
-                        alert("not mmpty")
-                        //if the local storage is not empty
-                        const storedData: any = localStorage.getItem("userList")
-                        let localStore: UserState = JSON.parse(storedData)
-                        // localStore.user.push()
-                        state.user = []
-                        state.user.push(...localStore.user)
-                        console.log(localStore);
+                      
+                        state.user.push(...action.payload?.users)
+                        localStorage.setItem("userList", JSON.stringify({user: localStore} ))
                   }
-
-
-
-
-
 
             })
             builder.addCase(getUsersAsync.pending, (state, action) => {
-                  console.log("Fetaching data");
+                  // console.log("Fetaching data");
 
             })
             builder.addCase(getUsersAsync.rejected, (state, action) => {
-                  console.log("You are offline or serve is down!");
+                  // console.log("You are offline or serve is down!");
 
             })
       }
