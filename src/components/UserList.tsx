@@ -9,12 +9,12 @@ type Props = {
 
 const UserList: React.FC<Props> = ({ listOfUser }) => {
       
-
       const newStorage:any = localStorage
-            newStorage.setItem("userList", JSON.stringify(listOfUser))
-
+      newStorage.setItem("userList", JSON.stringify(listOfUser))
+ 
 
       return (
+            
             <div className="user-list">
 
                   {listOfUser.map((user: any) => (

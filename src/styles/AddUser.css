@@ -17,43 +17,57 @@
   padding: 12px 19px;
   font-size: 18px;
 
-  margin: 13px 20px 24px 0;
-}
-.row{
-      display: flex;
+  margin: 13px 20px 0 0;
 }
 
+
 .btn{
-      margin: 0 20px ;
+      margin: 30px 20px  30px;
   padding: 8.5px 16px;
   border: none;
   background-color: #ff5c00;
   color: white;
   box-shadow: 1px 4px 8px rgba(239, 88, 3, 0.2);
   border-radius: 4px;
+
 }
 
 
+
+
 .form{
-    display: flex;
+    
     padding: 20px 20px 0 20px;
-         /*    width: 300px; */
+
+            display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 180px));
+  grid-auto-flow: row;
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+
+  justify-content: left;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
 
 .form{
-      display: block;
       width: 100%;
 }
 
-.row{
-      flex-direction: column;
-}
+
 
 .input-field{
       width: 100%;
 
 }
+
+}
+
+@media (min-width: 320px) and (max-width:480px)  {
+.form{
+     
+      width: 100%;
+}
+
 
 }

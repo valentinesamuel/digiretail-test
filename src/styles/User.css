@@ -3,7 +3,7 @@
 }
 
 .card{
-      min-width:20rem ;
+      min-width:18rem ;
 padding: 30px;
 border-radius: 12px;
 word-wrap: break-word;
@@ -38,6 +38,19 @@ font-size: 18px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+.card{
+transform: scale(0.8);
+max-width:100% ;
+}
+.card:hover{       
+       transform: scale(0.9);
+       opacity: 1;
+}
 
+}
+@media (min-width: 481px) and (max-width: 768px) {
 
+.card{
+ width:max-content ;
+}
 }

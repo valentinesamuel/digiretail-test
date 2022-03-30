@@ -25,7 +25,7 @@ const AddUser = () => {
     <>
       <h1 className='intro'>Welcome Digiretail</h1>
       <div onSubmit={onSubmit} className="form">
-        <div className="row">
+        
           <div className="input">
 
             <label htmlFor='name' className='input-label'>Name</label>
@@ -36,23 +36,29 @@ const AddUser = () => {
             <label htmlFor='username' className='input-label'>username</label>
             <input type="text" id='username' className='input-field' onChange={(e) => setUser((prevUsername) => ({ ...prevUsername, username: e.target.value }))} />
           </div>
-        </div>
-        <div className="row">
+       
+        
           <div className="input">
-          <label htmlFor='email'>email</label>
-          <input type="text" id='email' className='input-field' onChange={(e) => setUser((prevEmail) => ({ ...prevEmail, email: e.target.value }))} />
+            <label htmlFor='email' className='input-label'>email</label>
+            <input type="text" id='email' className='input-field' onChange={(e) => setUser((prevEmail) => ({ ...prevEmail, email: e.target.value }))} />
           </div>
           <div className="input">
-          <label htmlFor='website'>website</label>
-          <input type="email" id='website' className='input-field' onChange={(e) => setUser((prevWebsite) => ({ ...prevWebsite, website: e.target.value }))} />
+            <label htmlFor='website' className='input-label'>website</label>
+            <input type="email" id='website' className='input-field' onChange={(e) => setUser((prevWebsite) => ({ ...prevWebsite, website: e.target.value }))} />
           </div>
+     
+     
+          <div className="input">
+
+          <label htmlFor='phone' className='input-label'>phone</label>
+          <input type="tel" id='phone' className='input-field' onChange={(e) => setUser((prevPhone) => ({ ...prevPhone, phone: e.target.value }))} />
+         
+         
         </div>
-        <label htmlFor='phone'>phone</label>
-        <input type="tel" id='phone' className='input-field' onChange={(e) => setUser((prevPhone) => ({ ...prevPhone, phone: e.target.value }))} />
 
       </div>
 
-      <button className='btn' onClick={onSubmit}>Submit</button>
+      <button className='btn ' onClick={onSubmit}>Submit</button>
     </>
   )
 }
